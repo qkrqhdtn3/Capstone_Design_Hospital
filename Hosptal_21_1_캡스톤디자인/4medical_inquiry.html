@@ -1,0 +1,268 @@
+<?php
+	session_start();
+	//$_SESSION['userId'] = 'qqt3';
+	if (isset($_SESSION['userId'])) {
+		echo "{$_SESSION['userId']}님 환영합니다  ";
+	}
+?>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<form class="medicalInquiryForm" action="5reservation.html" method="post">
+	 <meta charset="utf-8" />
+
+	 <div class="title-Name">
+			 <label for="reservation-date">발열증상이 있다.</label>
+		 </div>
+
+	  <div class="elem-group inlined">
+		<!--
+			 <label for="no.1"><input type="radio" name="no1" value="yes" checked> 예</label>
+			 <label for="no.1"><input type="radio" name="no1" value="no" > 아니요</label>
+		-->
+			 <label><input type="radio" name="no1" value="yes"> 예</label>
+			 <label><input type="radio" name="no1" value="no" checked> 아니요</label>
+	    </div>
+
+
+
+		<div class="title-Name">
+	 		<label for="reservation-date">기침,인후통등 호흡기 증상이 있다.</label>
+	 	 </div>
+
+		 <div class="elem-group inlined">
+		 <!--
+			 <label for="no.2"><input type="radio" name="no2" value="yes" checked> 예</label>
+			 <label for="no.1"><input type="radio" name="no2" value="no" > 아니요</label>
+			 -->
+			 <label><input type="radio" name="no2" value="yes"> 예</label>
+			 <label><input type="radio" name="no2" value="no" checked> 아니요</label>
+	   </div>
+
+
+
+		 <div class="title-Name">
+			 <label for="reservation-date">몸살이나 근육통 증상이 있다.</label>
+  		</div>
+
+ 		 <div class="elem-group inlined">
+ 			 <label><input type="radio" name="no3" value="yes"> 예</label>
+ 			 <label><input type="radio" name="no3" value="no" checked> 아니요</label>
+ 		  </div>
+
+
+
+			<div class="title-Name">
+			 <label for="reservation-date">현재 자가격리중이다.</label>
+			</div>
+
+ 		  <div class="elem-group inlined">
+ 			  <label><input type="radio" name="no4" value="yes"> 예</label>
+ 			  <label><input type="radio" name="no4" value="no" checked> 아니요</label>
+ 		  </div>
+
+
+
+			 <div class="title-Name">
+				  <label for="reservation-date">14일 이내로 확진자와 접촉한 사실이 있다.</label>
+		 	</div>
+
+ 		  <div class="elem-group inlined">
+ 				 <label><input type="radio" name="no5" value="yes"> 예</label>
+ 				 <label><input type="radio" name="no5" value="no" checked> 아니요</label>
+ 			</div>
+
+
+			<div class="title-Name">
+					<label for="reservation-date">14일 이내로 자가격리자와 접촉한 사실이 있다.</label>
+			</div>
+
+			<div class="elem-group inlined">
+				  <label><input type="radio" name="no6" value="yes"> 예</label>
+					<label><input type="radio" name="no6" value="no" checked> 아니요</label>
+			</div>
+
+
+
+			<div class="title-Name">
+					<label for="reservation-date">14일 이내로 코로나 위험지역에 방문한 0이 있다.</label>
+			 </div>
+
+	 		<div class="elem-group inlined">
+	 				<label><input type="radio" name="no7" value="yes"> 예</label>
+	 			  <label><input type="radio" name="no7" value="no" checked> 아니요</label>
+	 		</div>
+
+
+			<hr>
+
+			<div class="button1">
+				<!-- <button input type="button">이전페이지</button> -->
+				<button input type="button" onclick="javascript:history.back()">이전페이지</button>
+			</div>
+
+			<div class="button2">
+			 	<!-- <button input type="button">다음페이지</button> -->
+				<!-- <button input type="button" onclick="javascript:history.forward()">다음페이지</button> -->
+				<button input type="button" onclick="dontGoNextPage()">다음페이지</button>
+			</div>
+ </form>
+	 <!-- 여기서부터 html 파트 시작 -->
+
+	 <!-- //여기서부터 css -->
+ <style media="screen">
+	  body {
+	    width: 500px;
+	    margin: 0 auto;
+	    padding: 50px;
+	   }
+
+	div.elem-group {
+	  margin: 20px 0;
+ }
+
+div.title-name {
+	width: 95%;
+	display: inline-block;
+	float: front;
+	margin-left: 0%;
+	font-size: 0.95em;
+}
+ div.elem-group.inlined {
+	  width: 95%;
+	  display: inline-block;
+	  float: front;
+	  margin-left: 0%;
+	  font-size: 0.95em;
+		border-width: 10px
+		border-color: black;
+		border-style:solid;
+	}
+
+	label {
+	  display: block;
+	  font-family: 'Nanum Gothic';
+	  padding-bottom: 2px;
+	  font-size: 1.25em;
+	}
+
+	 div.elem-group.inlined input {
+	   width:20%;
+	   display: inline-block;
+	 }
+
+
+	 hr {
+	   border: 1px dotted #ccc;
+	 }
+
+	 button{
+		 height: 40px;
+	   border: none;
+	   color: white;
+		 background: orange;
+		 font-size: 1.25em;
+	   font-family: 'Nanum Gothic';
+	   border-radius: 4px;
+	   cursor: pointer;
+	 }
+
+	div.button1 {
+	   float: left;
+	 }
+
+	 div.button1:hover {
+	   border: 2px solid black;
+	 }
+
+	div.button2 {
+	   float: right;
+	 }
+
+	 div.button2:hover {
+	   border: 2px solid black;
+	 }
+	 </style>
+	 <!-- 여기까지 css -->
+<!-- 여기서부터 java스크립트 -->
+<script>
+	function dontGoNextPage(){
+		var q1 = document.getElementsByName('no1');
+		var q1Choice; // 여기에 선택된 radio 버튼의 값이 담기게 된다.
+		for(var i=0; i<q1.length; i++) {
+			if(q1[i].checked) {
+				q1Choice = q1[i].value;
+			}
+		}
+	
+		var q2 = document.getElementsByName('no2');
+		var q2Choice; // 여기에 선택된 radio 버튼의 값이 담기게 된다.
+		for(var i=0; i<q2.length; i++) {
+			if(q2[i].checked) {
+				q2Choice = q2[i].value;
+			}
+		}
+	
+		var q3 = document.getElementsByName('no3');
+		var q3Choice; // 여기에 선택된 radio 버튼의 값이 담기게 된다.
+		for(var i=0; i<q3.length; i++) {
+			if(q3[i].checked) {
+				q3Choice = q3[i].value;
+			}
+		}
+	
+		var q4 = document.getElementsByName('no4');
+		var q4Choice; // 여기에 선택된 radio 버튼의 값이 담기게 된다.
+		for(var i=0; i<q4.length; i++) {
+			if(q4[i].checked) {
+				q4Choice = q4[i].value;
+			}
+		}
+	
+		var q5 = document.getElementsByName('no5');
+		var q5Choice; // 여기에 선택된 radio 버튼의 값이 담기게 된다.
+		for(var i=0; i<q5.length; i++) {
+			if(q5[i].checked) {
+				q5Choice = q5[i].value; //  qn[0].value="yes" 되고, qn[1].value="no"가 된다
+			}
+		}
+	
+		var q6 = document.getElementsByName('no6');
+		var q6Choice; // 여기에 선택된 radio 버튼의 값이 담기게 된다.
+		for(var i=0; i<q6.length; i++) {
+		if(q6[i].checked) {
+			q6Choice = q6[i].value; //  qn[0].value="yes" 되고, qn[1].value="no"가 된다
+			}
+		}
+	
+		var q7 = document.getElementsByName('no7');
+		var q7Choice; // 여기에 선택된 radio 버튼의 값이 담기게 된다.
+		for(var i=0; i<q7.length; i++) {
+			if(q7[i].checked) {
+				q7Choice = q7[i].value; //  qn[0].value="yes" 되고, qn[1].value="no"가 된다
+			}
+		}
+		
+		//alert(`${q1Choice}, ${q2Choice}, ${q3Choice}, ${q4Choice}, ${q5Choice}, ${q6Choice}, ${q7Choice}`);
+		if(q1Choice=='yes' ||
+		q2Choice=='yes' ||
+		q3Choice=='yes' ||
+		q4Choice=='yes' ||
+		q5Choice=='yes' ||
+		q6Choice=='yes' ||
+		q7Choice=='yes'){
+			alert("코로나 의심 증상으로 인해 병원 진료가 불가능 합니다.");
+			return 0;
+		}
+		//$('.button2').submit();
+		document.getElementsByClassName('medicalInquiryForm')[0].submit();
+		return 0;
+	}
+
+
+</script>
+<!-- 여기까지 java스크립트 -->
+</body>
+</html>
