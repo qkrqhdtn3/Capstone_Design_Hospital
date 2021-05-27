@@ -1,0 +1,124 @@
+<?php
+	session_start();
+	//$_SESSION['userId'] = 'qqt3';
+	//$_SESSION['userName'] = '박봉수';
+	//print_r($_SESSION);
+?>
+<html>
+    <head>
+		<meta charset="utf-8">
+        <meta name="author" content="한림대학교 캡스톤디자인 팀-Hospital">
+        <meta name="description" content="복잡한 병원 절차를 도와주는 반응형 웹이다. 예약, 문진표, 진료 절차의 현재 진행 상황, 찾아가는 길을 알려준다. 환자가 편하게 현재 진행 상황을 확인하고 대기시간을 줄일 수 있다.">
+        <meta name="viewport" content="width=device-width, initial-scale=0.5, user-scalable=no"/>
+        <style>
+            /*
+			.reservationTableOutput{
+				// border-collapse:separate;
+				border-spacing: 20px 10px;
+				border: 1px solid black;
+			}
+			td{
+				border: 1px solid black;
+				margin: 20px;
+				padding: 10px;
+			}
+			*/
+            body {
+                width: 500px;
+                margin: 0 auto;
+            }
+            .bgImg {
+                background-image: url('logo.png');
+                /* 배경이미지를 반복하지 마세요.*/
+                background-repeat: no-repeat;
+                /* 배경이미지를 중앙에 표시하세요.*/
+                background-position: right top;
+                background-size: 100px
+            }
+            table.reservationTableOutput {
+                border-collapse: separate;
+                border-spacing: 0;
+                border: 1px solid black;
+                text-align: center;
+                line-height: 1.5;
+                margin: 20px 10px;
+            }
+            table.reservationTableOutput th {
+                width: 155px;
+                padding: 10px;
+                font-weight: bold;
+                vertical-align: top;
+                border-right: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+                border-top: 1px solid #fff;
+                border-left: 1px solid #fff;
+                background: #eee;
+            }
+            table.reservationTableOutput td {
+                width: 155px;
+                padding: 10px;
+                vertical-align: top;
+                border-right: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bgImg">
+            <div align="right" style="margin:0px 110px 16px 0; padding:10px 0 0 0;">
+                <?php
+					if (isset($_SESSION['userId'])) {
+						echo "접속중인 id : {$_SESSION['userId']}<br>{$_SESSION['userName']}님 환영합니다.";
+					}
+				?>
+            </div>
+            <div>
+                <?php echo $_SESSION['userName']; ?>님의 예약 목록 확인입니다.
+                <button input type="button" onclick="location.href='1main.html'">메인화면으로 돌아가기</button>
+                <?php include "5reservationCheck.php"; ?>
+            </div>
+            <!-- 위 div박스와 동일한 내용이다.
+            		<?php
+            			echo "<div>";
+            			echo "{$_SESSION['userName']}님의 예약 목록 확인입니다.";
+            			echo "</div>";
+            			include "5reservationCheck.php";
+            		?>
+            		-->
+            <table class="reservationTableOutput">
+                <thead>
+                    <tr>
+                        <th scope="col">진료날짜</th>
+                        <th scope="col">진료과</th>
+                        <th scope="col">진료교수</th>
+                        <th scope="col">추가내용</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+						include "5reservationCheck_TableOutput.php";
+					?>
+                    <!-- css 작업용 샘플 -->
+                    <tr>
+                        <td>내용</td>
+                        <td>내용</td>
+                        <td>내용</td>
+                        <td>내용</td>
+                    </tr>
+                    <tr>
+                        <td>내용</td>
+                        <td>내용</td>
+                        <td>내용</td>
+                        <td>내용</td>
+                    </tr>
+                    <tr>
+                        <td>내용</td>
+                        <td>내용</td>
+                        <td>내용</td>
+                        <td>내용</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

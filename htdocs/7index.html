@@ -1,0 +1,55 @@
+<?php
+	session_start();
+?>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <meta charset="utf-8"/>
+        <meta name="author" content="한림대학교 캡스톤디자인 팀-Hospital">
+        <meta name="description" content="복잡한 병원 절차를 도와주는 반응형 웹이다. 예약, 문진표, 진료 절차의 현재 진행 상황, 찾아가는 길을 알려준다. 환자가 편하게 현재 진행 상황을 확인하고 대기시간을 줄일 수 있다.">
+        <meta name="viewport" content="width=device-width, initial-scale=0.6, user-scalable=no"/>
+        <style media="screen">
+            body {
+                width: 500px;
+                margin: 0 auto;
+            }
+            .bgImg {
+                background-image: url('logo.png');
+                /* 배경이미지를 반복하지 마세요.*/
+                background-repeat: no-repeat;
+                /* 배경이미지를 중앙에 표시하세요.*/
+                background-position: right top;
+                background-size: 100px
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bgImg">
+            <div align="right" style="margin:0px 110px -31px 0; padding:10px 0 0 0;">
+                <?php
+					if (isset($_SESSION['userId'])) {
+						echo "접속중인 id : {$_SESSION['userId']}<br>{$_SESSION['userName']}님 환영합니다.";
+					} 
+				?>
+            </div>
+            <h1>
+                길찾기
+            </h1>
+            <image src="./7img/0.jpg" width="500"></image>
+			<form name="navi">
+				<p>
+					현재 위치
+					<input type="text" name="point1" placeholder="번호로 입력하세요">
+				</p>
+				<p>
+					목적지
+					<input type="text" name="point2" placeholder="번호로 입력하세요">
+				</p>
+				<div>
+					<input type="Button" onclick="check(this.form)" value="길찾기">
+				</div>
+			</form>
+		</div>
+		<script src="./js/7test.js"></script>
+    </body>
+</html>

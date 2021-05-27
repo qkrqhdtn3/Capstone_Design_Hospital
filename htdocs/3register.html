@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="한림대학교 캡스톤디자인 팀-Hospital">
+        <meta name="description" content="복잡한 병원 절차를 도와주는 반응형 웹이다. 예약, 문진표, 진료 절차의 현재 진행 상황, 찾아가는 길을 알려준다. 환자가 더 마음을 놓고 편안하게 현재 상황을 확인하고 대기시간을 줄일 수 있다.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+        <style>
+            body {
+                width: 500px;
+                margin: 0 auto;
+            }
+            .bgImg {
+                background-image: url('logo.png');
+                /* 배경이미지를 반복하지 마세요.*/
+                background-repeat: no-repeat;
+                /* 배경이미지를 중앙에 표시하세요.*/
+                background-position: right top;
+                background-size: 100px
+            }
+            .registerForm {
+                margin: 100px 0 0;
+            }
+            .registerForm > p {
+                margin: 13 0 0 3;
+                font-weight: 550;
+            }
+            .registerForm > input {
+                margin: 0;
+                height: 30px;
+                font-size: 16px;
+                border-radius: 8px;
+            }
+            .pageBtn {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                margin: 40px 0 20px;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div class="bgImg">
+            <br>
+            <form class="registerForm" action="3register.php" method="POST">
+                <p>아이디</p>
+                <input type="text" name="id" id="id" size="20" required value="qqt3">
+                <p>비밀번호</p>
+                <input type="password" name="password" id="password" size="20" required value="0000">
+                <p>비밀번호 확인</p>
+                <input type="password" name="passwordConfirm" id="passwordConfirm" size="20" required value="0000">
+                <p>이름</p>
+                <input type="text" name="name" id="name" size="20" required value="박봉수">
+                <p>성별</p>
+                <input type="radio" name="sex" id="sex" value="남" required checked>남
+                <input type="radio" name="sex" id="sex" value="여">여
+                <p>생년월일</p>
+                <input type="text" name="dateBirth" id="dateBirth" size="20" required value="19980810">
+                <p>전화번호</p>
+                <input type="text" name="phoneNumber" id="phoneNumber" size="20" required value="01027701649">
+                <p>본인확인 이메일</p>
+                <input type="email" name="identityVerificationEmail" id="identityVerificationEmail" size="30" required value="qkrqhdtn3@gmail.com">
+                <br><br>
+                <div class="pageBtn">
+                    <div class="goNextPage" style="display:flex; justify-content:space-between; align-items:center; border:1px solid black; border-radius:8px; width:220px; height:32px; margin: 0 10px 1px 0; padding: 0 0 0 10px;">다음으로 넘어가겠습니다.
+                        <div class="pageBtnAlignRight" style="margin: 0 10px 0 0;">
+                            <input type="checkbox" id="navyBtn" name="navyBtn" onclick="goNextPage()">
+                        </div>
+                    </div>
+                    <div class="lineBreak" style="width:100%;"></div>
+                    <div class="dontGoNextPage" style="display:flex; justify-content:space-between; align-items:center; border:1px solid black; border-radius:8px; width:220px; height:32px; margin: 1px 10px 0 0; padding: 0 0 0 10px;">잠시만 기다려주십시오.
+                        <div class="pageBtnAlignRight" style="margin: 0 10px 0 0;">
+                            <input align="right" type="checkbox" id="waitBtn" name="waitBtn">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script>
+            // 다음 페이지로 이동하는 함수. 필요한 내용을 작성 안했을 경우 다음 페이지로 이동할 수 없다.
+            function goNextPage() {
+                if ($('#name').val() == '' || $('#sex').val() == '' || $('#dateBirth').val() == '' || $('#phoneNumber').val() == '' || $('#identityVerificationEmail').val() == '') {
+                    alert("모두 작성해주세요.");
+                    return 0;
+                }
+                if ($('#password').val() != $('#passwordConfirm').val()) {
+                    alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+                    return 0;
+                }
+                $('.registerForm').submit();
+                return 0;
+            }
+        </script>
+    </body>
+</html>

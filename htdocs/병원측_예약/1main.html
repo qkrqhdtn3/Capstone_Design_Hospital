@@ -1,0 +1,40 @@
+<?php
+	session_start();
+?>
+<html>
+	<head>
+		<meta charset="utf-8" /> <!-- HTML 문서의 문자 인코딩 방식. 유니코드 문자셋 uft-8이 가장 많이 사용됨. 속성값 - 문자셋 -->
+		<meta name="author" content="한림대학교 캡스톤디자인 팀-Hospital">
+		<meta name="description" content="복잡한 병원 절차를 도와주는 반응형 웹이다. 예약, 문진표, 진료 절차의 현재 진행 상황, 찾아가는 길을 알려준다. 환자가 편하게 현재 진행 상황을 확인하고 대기시간을 줄일 수 있다.">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	</head>
+	<body>
+		<p style="color:blue; text-align:center; font-family:cursive; font-size:32px; font-style:oblique; font-weight:550; letter-spacing:12px; margin: 50px 0 50px 0;">hospital</p>
+		<br>
+		<?php
+			if (isset($_SESSION['userId'])) {
+            echo "{$_SESSION['userId']}님 환영합니다  ";
+        ?>
+			<li class="nav-item">
+				<a class="navLinkLogout" href="3logout.html">로그아웃</a>
+			</li>
+			<li class="nav-item">
+				<a class="navLinkReservationCheck" href="5reservationCheckForHospital.html">환자의 예약 목록 확인</a>
+			</li>
+		<?php
+			} else {
+        ?>
+            <li class="nav-item">
+                <a class="navLinkeActive" aria-current="page" href="2termsOfService.html">회원가입 </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="navLinkLogin" href="3login.html">로그인</a>
+            </li>
+
+        <?php
+        }
+        ?>
+    </ul>
+	</body>
+</html>
