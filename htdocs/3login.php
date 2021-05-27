@@ -55,7 +55,7 @@
 		*/
 		echo "<script>
 			alert('로그인에 성공했습니다.');
-			location.href='1main.html';</script>";
+			location.href='index.html';</script>";
 	}
 	else{
 		echo "<script>

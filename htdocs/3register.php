@@ -28,10 +28,10 @@
 		echo "error";
 		echo mysqli_error($con);
 		*/
-		echo "<script>alert('중복된 ID입니다. 회원가입에 실패했습니다.'); location.href = '1main.html';</script>";
+		echo "<script>alert('중복된 ID입니다. 회원가입에 실패했습니다.'); location.href = 'index.html';</script>";
 	}
 	else{
-		echo "<script>alert('회원가입에 성공했습니다.'); location.href = '1main.html';</script>";
+		echo "<script>alert('회원가입에 성공했습니다.'); location.href = 'index.html';</script>";
 	}
 	mysqli_close($con);
 ?>

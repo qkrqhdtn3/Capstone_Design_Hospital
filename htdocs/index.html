@@ -1,0 +1,73 @@
+<?php
+	session_start();
+?>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="한림대학교 캡스톤디자인 팀-Hospital">
+        <meta name="description" content="복잡한 병원 절차를 도와주는 반응형 웹이다. 예약, 문진표, 진료 절차의 현재 진행 상황, 찾아가는 길을 알려준다. 환자가 편하게 현재 진행 상황을 확인하고 대기시간을 줄일 수 있다.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+        <style media="screen">
+            body {
+                width: 500px;
+                margin: 0 auto;
+            }
+            .bgImg {
+                background-image: url('logo.png');
+                /* 배경이미지를 반복하지 마세요.*/
+                background-repeat: no-repeat;
+                /* 배경이미지를 중앙에 표시하세요.*/
+                background-position: center top;
+                background-size: 300px
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bgImg">
+            <br><br><br><br><br><br><br><br>
+            <div align="right" style="margin:24px 110px 24px 0">
+                <?php
+					if (isset($_SESSION['userId'])) {
+						echo "접속중인 id : {$_SESSION['userId']}<br>{$_SESSION['userName']}님 환영합니다.";
+					}
+				?>
+            </div>
+            <?php
+				if (isset($_SESSION['userId'])) {
+			?>
+			<div align="center">
+				<a class="navLinkLogout" href="3logout.html"><img src="./3img/logout.jpg" width="60%"></a>
+			</div>
+			<br><br>
+			<div align="center">
+				<a class="navLinkNextPage" href="4medical_inquiry.html"><img src="./3img/reservation.jpg" width="60%"></a>
+			</div>
+			<br><br>
+			<div style="margin:0 0 0 100px;">
+				<li class="nav-item">
+					<a class="navLinkReservationCheck" href="5reservationCheck.html">내 예약 목록 확인</a>
+				</li>
+				<li class="nav-item">
+					<a class="navLinkReservationCheck" href="7index.html">병원 내부 길찾기</a>
+				</li>
+				<li class="nav-item">
+					<a class="navLinkReservationCheck" href="https://www.naver.com">현재 진행상황 확인(미구현)</a>
+				</li>
+			</div>
+            <?php
+				} else {
+			?>
+			<div align="center">
+				<a class="navLinkLogin" href="3login.html"><img src="./3img/login.jpg" width="60%"></a>
+			</div>
+			<br><br>
+			<div align="center">
+				<a class="navLinkeActive" aria-current="page" href="2termsOfService.html"><img src="./3img/register.jpg" width="60%"></a>
+			</div>
+			<br><br>
+            <?php
+				}
+			?>
+        </div>
+    </body>
+</html>
