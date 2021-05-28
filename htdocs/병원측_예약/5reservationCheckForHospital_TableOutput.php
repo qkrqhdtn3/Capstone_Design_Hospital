@@ -1,5 +1,5 @@
 <?php
-	$con = new mysqli($host, $user, $pw, 'user', '3307');
+	$con = new mysqli($host, $user, $pw, 'user', '3306');
 	$rowList = array();
 	for($i=0 ; $i < count($idList) ; $i++){
 		$sql = "
