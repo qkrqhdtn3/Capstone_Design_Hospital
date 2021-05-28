@@ -1,9 +1,9 @@
 <?php
-	$host = '127.0.0.1';
+	$host = 'hospital-21-1.cwpsy3rccui5.ap-northeast-2.rds.amazonaws.com';
 	$user = 'root';
-	$pw = '112233';
-	$dbName = 'user';
-	$con = new mysqli($host, $user, $pw, $dbName, '3307');
+	$pw = '11223344';
+	$dbName = 'Hospital_DB_21_1';
+	$con = new mysqli($host, $user, $pw, $dbName, '3306');
 	if (mysqli_connect_errno())
 	{
 		echo "An error occured. Please try again later.";
@@ -28,10 +28,10 @@
 		echo "error";
 		echo mysqli_error($con);
 		*/
-		echo "<script>alert('중복된 ID입니다. 회원가입에 실패했습니다.'); location.href = '1main.html';</script>";
+		echo "<script>alert('중복된 ID입니다. 회원가입에 실패했습니다.'); location.href = 'index.html';</script>";
 	}
 	else{
-		echo "<script>alert('회원가입에 성공했습니다.'); location.href = '1main.html';</script>";
+		echo "<script>alert('회원가입에 성공했습니다.'); location.href = 'index.html';</script>";
 	}
 	mysqli_close($con);
 ?>

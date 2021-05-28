@@ -1,11 +1,11 @@
 <?php
 	session_start();
 	//$host = 'localhost';
-	$host = '127.0.0.1';
+	$host = 'hospital-21-1.cwpsy3rccui5.ap-northeast-2.rds.amazonaws.com';
 	$user = 'root';
-	$pw = '112233';
-	$dbName = 'reservation';
-	$con = new mysqli($host, $user, $pw, $dbName, '3307');
+	$pw = '11223344';
+	$dbName = 'Hospital_DB_21_1';
+	$con = new mysqli($host, $user, $pw, $dbName, '3306');
 	if (mysqli_connect_errno())
 	{
 		echo "An error occured. Please try again later.";
