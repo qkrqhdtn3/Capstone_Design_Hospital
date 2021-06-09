@@ -1,5 +1,9 @@
 <?php
 	session_start();
+	// 로그인 안됬을 시 index page로 이동
+	if(!isset($_SESSION['userId'])) {
+		echo "<script>location.href = '../index.php';</script>";
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,7 +26,7 @@
 				float: right;
 			}
 			.menu {
-				height: 9%;
+				height: 12%;
 				background-color: #EFFBEF;
 				padding: 0 0 12% 0;
 			}
@@ -79,10 +83,25 @@
 				두번째 절차는 진료입니다.
 			</p>
 			<p>
-				OOO으로 가세요.
+				<?php 
+					if(isset($_SESSION['progressMedicalDepartment'])){
+						echo "{$_SESSION['progressMedicalDepartment']}로 가세요.";
+				?>
 				<form action="../7indexhtml.php">
 					<input type="submit" value="길찾기">
 				</form>
+				<?php
+					}
+					else{
+						echo "먼저 예약을 해주세요.";
+				?>
+				<form action="../4medical_inquiryhtml.php">
+					<input type="submit" value="예약">
+				</form>
+				<?php
+					}
+				?>
+				
 			</p>
 			<image src="../8img/80.png" width="150"></image>
 			<P>

@@ -1,5 +1,9 @@
 <?php
 	session_start();
+	// 로그인 안됬을 시 index page로 이동
+	if(!isset($_SESSION['userId'])) {
+		echo "<script>location.href = '../index.php';</script>";
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,7 +26,7 @@
 				float: right;
 			}
 			.menu {
-				height: 9%;
+				height: 12%;
 				background-color: #EFFBEF;
 				padding: 0 0 12% 0;
 			}
@@ -75,6 +79,9 @@
 			<div class="button">
 				<a href="../index.php"><img src="../6img/menu.jpg" width="80%"></a>
 			</div>
+			<p>
+				수납 완료
+			</p>
 			<p>
 				모든 절차가 완료 되었습니다.
 			</p>

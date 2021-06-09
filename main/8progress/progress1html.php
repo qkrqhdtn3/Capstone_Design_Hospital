@@ -1,5 +1,9 @@
 <?php
 	session_start();
+	// 로그인 안됬을 시 index page로 이동
+	if(!isset($_SESSION['userId'])) {
+		echo "<script>location.href = '../index.php';</script>";
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,7 +26,7 @@
 				float: right;
 			}
 			.menu {
-				height: 9%;
+				height: 12%;
 				background-color: #EFFBEF;
 				padding: 0 0 12% 0;
 			}
@@ -76,12 +80,12 @@
 				<a href="../index.php"><img src="../6img/menu.jpg" width="80%"></a>
 			</div>
 			<p>
-				첫번째 절차는 접수입니다.
+				첫번째 절차는 예약입니다.
 			</p>
 			<p>
-				OOO으로 가세요.
-				<form action="../7indexhtml.php">
-					<input type="submit" value="길찾기">
+				앱에서 예약하세요.
+				<form action="../4medical_inquiryhtml.php">
+					<input type="submit" value="예약">
 				</form>
 			</p>
 			<image src="../8img/20.png" width="150"></image>

@@ -62,6 +62,7 @@
 	// 예약 시작
 	$result = insertRowIntoReservationDb($id, $medicalDepartment, $medicalProfessor, $dateOfTreatment, $timeOfTreatment, $reservationDate, $symptomsEtc);
 	if($result == true){
+		$_SESSION['progressMedicalDepartment']=$medicalDepartment;
 		echo "<script>alert('예약이 완료되었습니다.'); location.href = '../7indexhtml.php';</script>";
 	}
 ?>

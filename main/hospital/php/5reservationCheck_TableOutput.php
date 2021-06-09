@@ -30,7 +30,7 @@
 	}
 	//print_r($idList);
 	//echo count($reservationList);
-	
+	//rowList = 예약한 유저의 정보 리스트
 	$rowList = array();
 	for($i=0 ; $i < count($idList) ; $i++){
 		$result = getRowsInTable('user', 'id', $idList[$i]);
