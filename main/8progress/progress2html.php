@@ -76,37 +76,31 @@
 					?>
 				</div>
 			</div>
-			<div class="button">
-				<a href="../index.php"><img src="../6img/menu.jpg" width="80%"></a>
+			<div>
+				<div class="button">
+					<a href="../index.php"><img src="../6img/menu.jpg" width="80%"></a>
+				</div>
+				<p>
+					두번째 절차는 진료입니다.
+				</p>
+				<p>
+					<?php 
+						if(isset($_SESSION['progressMedicalDepartment'])){
+							echo "{$_SESSION['progressMedicalDepartment']}로 가세요.";
+						}
+						else{
+							echo "OO과로 가세요.<br>예약을 하고 오시면 진료과를 안내합니다.";
+						}
+					?>
+					<form action="../7indexhtml.php">
+						<input type="submit" value="길찾기">
+					</form>
+				</p>
+				<image src="../8img/80.png" width="150"></image>
+				<P>
+					현재 단계가 완료되면 다음 버튼을 눌러 진행하세요.
+				</P>
 			</div>
-			<p>
-				두번째 절차는 진료입니다.
-			</p>
-			<p>
-				<?php 
-					if(isset($_SESSION['progressMedicalDepartment'])){
-						echo "{$_SESSION['progressMedicalDepartment']}로 가세요.";
-				?>
-				<form action="../7indexhtml.php">
-					<input type="submit" value="길찾기">
-				</form>
-				<?php
-					}
-					else{
-						echo "먼저 예약을 해주세요.";
-				?>
-				<form action="../4medical_inquiryhtml.php">
-					<input type="submit" value="예약">
-				</form>
-				<?php
-					}
-				?>
-				
-			</p>
-			<image src="../8img/80.png" width="150"></image>
-			<P>
-				현재 단계가 완료되면 다음 버튼을 눌러 진행하세요.
-			</P>
 			<div class="button1">
 				<button input type="button" onclick="javascript:history.back()">이전페이지</button>
 			</div>

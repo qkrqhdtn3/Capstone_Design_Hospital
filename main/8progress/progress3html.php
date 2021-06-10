@@ -76,19 +76,21 @@
 					?>
 				</div>
 			</div>
-			<div class="button">
-				<a href="../index.php"><img src="../6img/menu.jpg" width="80%"></a>
+			<div>
+				<div class="button">
+					<a href="../index.php"><img src="../6img/menu.jpg" width="80%"></a>
+				</div>
+				<p>
+					수납 완료
+				</p>
+				<p>
+					모든 절차가 완료 되었습니다.
+				</p>
+				<image src="../8img/100.png"width="150"></image>
+				<P>
+					감사합니다.
+				</P>
 			</div>
-			<p>
-				수납 완료
-			</p>
-			<p>
-				모든 절차가 완료 되었습니다.
-			</p>
-			<image src="../8img/100.png"width="150"></image>
-			<P>
-				감사합니다.
-			</P>
 		</div>
 	</body>
 </html>

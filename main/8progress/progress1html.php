@@ -76,22 +76,24 @@
 					?>
 				</div>
 			</div>
-			<div class="button">
-				<a href="../index.php"><img src="../6img/menu.jpg" width="80%"></a>
+			<div>
+				<div class="button">
+					<a href="../index.php"><img src="../6img/menu.jpg" width="80%"></a>
+				</div>
+				<p>
+					첫번째 절차는 예약입니다.
+				</p>
+				<p>
+					앱에서 예약하세요.
+					<form action="../4medical_inquiryhtml.php">
+						<input type="submit" value="예약">
+					</form>
+				</p>
+				<image src="../8img/20.png" width="150"></image>
+				<P>
+					현재 단계가 완료되면 다음 버튼을 눌러 진행하세요.
+				</P>
 			</div>
-			<p>
-				첫번째 절차는 예약입니다.
-			</p>
-			<p>
-				앱에서 예약하세요.
-				<form action="../4medical_inquiryhtml.php">
-					<input type="submit" value="예약">
-				</form>
-			</p>
-			<image src="../8img/20.png" width="150"></image>
-			<P>
-				현재 단계가 완료되면 다음 버튼을 눌러 진행하세요.
-			</P>
 			<div class="button1">
 				<button input type="button" onclick="javascript:history.back()">이전페이지</button>
 			</div>
